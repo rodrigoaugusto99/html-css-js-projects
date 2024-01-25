@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>Projeto 01</title>
+    <link href="css/style_responsive.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8">
+    
+</head>
+
+
+
+
+
+<body>
+<div class="header">
+    <div class="center">  <!-- centralizando o conteudo do header-->
+        <img src="images/logo.png">
+    </div><!--center-->
+</div><!--header-->
+
+<!--container com form, lista e background-->
+<div class="container-banner">
+    <!--como sempre, tem que ser o filho center antes dos outros filhos-->
+    <div class="center">
+<!--list com opacidade-->
+    <div>
+    <div class="container-list">
+        <ul>
+            <li>Lorem ipsum silor domor amet</li>
+            <li>Lorem ipsum silor domor amet</li>
+            <li>Lorem ipsum silor domor amet</li>
+            <li>Lorem ipsum silor domor amet</li>
+        </ul>
+    </div><!--container-list-->
+    </div>
+<!--criando a classe form dentro do center-->
+    <div>
+        <div class="form">
+            <!--titulo-->
+            <h2>Preencha o formulário e inicie a sua
+            caminhada para virar um webmaster!</h2>
+            <form>
+                <div class="input-container">
+                    <span>Nome*</span>
+                    <input type="text" name="nome" required="">
+                </div><!--input-container-->
+
+                <div class="input-container">
+                    <span>E-mail*</span>
+                    <input type="text" name="nome" required="">
+                </div><!--input-container-->
+
+                <div class="input-container">
+                    <span>Telefone*</span>
+                    <input type="text" name="nome" required="">
+                </div><!--input-container-->
+
+                <!--mensagenzinha-->
+                <p class="warning">*Campos obrigatórios</p>
+
+                <div class="input-submit-container">
+                    <input type="submit" name="acao" value="Enviar">
+                </div><!--input-submit-container-->
+                
+            </form>
+            
+        </div>
+        </div><!--form-->
+    
+        <div class="clear"></div>
+    </div><!--center-->
+</div><!--container-banner-->
+
+<!--segundo container, embaixo do que tem o form
+center dentro, e titulo e textinho.-->
+<div class="container-2">
+    <div class="center">
+        <h2>Lorem ipsum</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    </div><!--center-->
+
+    <div class="arrow"></div>
+
+
+</div><!--container-2-->
+
+
+<div class="container-3">
+    <div class="center">
+    <!--como ta tudo dentro do center, ele tem uma width definida(1200), 
+    entao quando diminuir a tela, vai ficar responsivo ATE o width minimo que eh
+1200, se ficar menor, vai criar scroll. Lembrar que para esses casos, tem que botar
+tambem width minima de 1200 em todos os componentes, para que eles nao quebrem e fiquem
+em branco quando dar scroll pra direita-->
+    <h2>Aprenda com quem está no mercado</h2>
+
+    <div class="container-section">
+
+        <div class="container-single">
+            <div><img src="images/icon.png"></div>
+            <div class="text-container-single">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volelit esse molestie consequat, vel illum dolore</p>
+            </div><!--text-container-single-->
+        </div><!--container--single-->
+
+        <div class="container-single">
+            <div><img src="images/icon.png"></div>
+            <div class="text-container-single">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volelit esse molestie consequat, vel illum dolore</p>
+            </div><!--text-container-single-->
+        </div><!--container--single-->
+
+        <div class="container-single">
+            <div><img src="images/icon.png"></div>
+            <div class="text-container-single">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volelit esse molestie consequat, vel illum dolore</p>
+            </div><!--text-container-single-->
+        </div><!--container--single-->
+        <div class="clear"></div>
+        <!--clear tem que ficar logo depois do ultimo float, 
+        porque se ficar por exemplo depois de elementos pais,
+        ele so vai levar em conta o container-3 em si. deixando aquilo flutuando
+    ainda-->
+    </div><!--container-section-->
+
+    </div><!--center-->
+</div><!--container-3-->
+
+<div class="footer">
+
+    <p>Todos os direitos reservados</p>
+    <p>Av. Lorem Ipsum, silor domor 211 - Florianópolis SC</p>
+</div><!--footer-->
+
+</body>
+</html>

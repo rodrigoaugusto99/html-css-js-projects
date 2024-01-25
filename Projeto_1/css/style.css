@@ -1,0 +1,307 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Open Sans"
+}/*resetando  tudo // boxsizing,pra quando usar o padding, quero que seja o border box*/
+
+html,body{
+	height: 100%;
+}
+
+/* meio que instanciando a fonte - .. eh p voltar um diretorio*/
+@font-face{
+	src:url('../fonts/OpenSans-Light.ttf');
+	font-family: "Open Sans";/*inventa nome*/
+}
+
+.clear{
+	clear: both;
+}
+
+.center{ /*classe que vamos usar varias vezes que vai ser o nosso contexto, de 1280 pixels.*/
+	width: 1200px;
+	margin: 0 auto; /*centralizar*/
+	padding:0 2%; /*para quando diminuir a tela, sempre ficar um paddingzinho*/
+}
+
+.header{ /*cabecalho*/
+	min-width: 1200px;
+	width: 100%;
+	height: 60px;
+	background-color: #212343;
+}
+
+.header img{
+	margin: 15px; /*margem para todos os lados*/
+}
+
+/**_________________________________________________*/
+
+/*banner emabaixo do header, com o background, lista e form*/
+.container-banner{
+	width: 100%;
+	min-width: 1200px; /*pra n quebrar qndo diminuir tela e aparecer scroll*/
+	height: 557px;
+    /*como eh mt grande, entao usar background, e nao imagem*/
+	background-image:url('../images/header_bg.png');
+    /*cubra toda a area, posicionar melhor o background*/
+	background-size: cover;
+	background-position: center;
+}
+
+/*tem que botar altura 100% nesse center pra permitir botar altura 100% tbm
+no filho FORM, pois quando usa porcentagem no height, tem que herdar o elemento
+anterior*/
+.container-banner > .center{
+	height: 100%;
+	/*text-align: right;*/
+}
+
+.form{
+    /*display: inline-block;*/
+	padding:10px; /*em todos os lados*/
+	width: 400px; /*largura do form*/
+     /*altura 100%(do center) e adicionar 30px
+     botou porcentagem na altura? entao ele herda o do elemento anterior.
+     (tem que estar especificado)*/
+	height: calc(100% + 30px);
+
+    /*?~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    float e inline block eh pra permitir que os elementos
+    fiquem na mesma linha
+    
+    /*!float - 
+    para o texto envolver outro elemento, tipo se o width acaba
+    antes de terminar a janela, o texto que viria logo depois, comeca ali
+    no espacinho que falta, ele ENVOLVE.
+    
+    como flutua, o pai nao sabe a altura do filho, entao nao leva em conta e pode
+    bugar...entao, taca um CLEAR para limpar os efeitos do float, e fazer com que
+    o pai VOLTE a interpretar a altura do filho, desbugando.
+    
+    /*!inline-block - tbm deixa do ladinho, mas apenas na MESMA linha, 
+    diferente do float, que usa quantas linhas forem necessarias pra cobrir o espaco
+    isso pq o inline-block interpreta os elementos como texts, ou seja, tem que ter
+    espacos entre as palavras. dessa forma, podemos usar o text-align e vertical-align
+    no elemento pai para posicionar o elemento filho.
+    prolema- com a quebra de linha no html, o inline quebra tbm, pq eh text
+    entao tem que botar margem negativa de -4px para 
+    
+    ?CONCLUSAO - inline eh melhor, mas tem aquele problema caso queria encostar
+    os elementos. no float, a real funcao dele eh de um elemento contorne outro.
+    /*?~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+     /*tacando pra direita, ficando no limite do center, que eh 1200px.
+    flot eh para o elemento ficar por cima do outro*/
+	float: right; 
+    /*position relativa p usar o top left etc*/
+	position: relative;
+    /*subir 15px que eh a metade de 30*/
+	top:-15px;
+	border-width: 12px;
+    /*borda em rgba com opacidade, mas tem por padrao
+    o background comeca na ponte da borda, entao nao pega a opacidade de fora*/
+	border-color: rgba(120,120,120,0.5);
+	border-style: solid;
+	background-color: white;
+    /*borda transparente
+    quero que a cor do background comece pelo padding.
+    a cor pega ate a pontinha dos textos e outros elementos 
+    dentro do form
+    o padrao eh o border-box, que o background vai ate a borda
+    mas queremos que fique ate o padding.*/
+	background-clip:padding-box;
+	/*background-origin tem o mesmo conceito porém serve para imagens.*/
+}
+
+/*botar o texto do titulo fielmente igual ao desing*/
+.form h2{
+	font-weight: normal; /*padrao eh bold*/
+	color: #999999;
+	font-size: 21px;
+}
+
+/*estilizando os inputs do form*/
+.input-container{
+	margin-top:20px;
+}
+
+.input-container span, .form p{ /*label dos input igual o da mensagenzinha de alerta*/
+	display: inline-block;
+	width: 100%;
+	color: #BBBBBB;
+	font-size: 17px;
+}
+
+.form p{
+	/*display: inline-block;
+	width: 100%;
+	color: #BBBBBB;
+	font-size: 17px;*/
+	margin:20px 0;
+}
+
+/*estilizando fielmente com os tamanhos do figma, o tamanho do campo de texto
+type=text pra nao pegar o SUBMIT, que tbm eh um input.*/
+.input-container input[type=text]{
+	margin-top:8px; /*pra ficar longe da label dos inputs*/
+	width: 344px;
+	height: 55px;
+	border:1px solid #ccc;
+}
+
+/*encapsulei o botao dentro dessa div input-submite-container
+pra usar como pai e centralizar o filho com text-align*/
+.form .input-submit-container{
+	text-align: center;
+}
+
+
+.form input[type=submit]{
+	color: white;
+	font-size: 25px;
+	width: 280px;
+	height: 56px;
+	display: inline-block; /*para poder alinhar dentro do pai*/
+	background-color: #363A6D;
+    border-bottom: 5px solid #4A5097;
+	/*fiz uma sombrinha com o border-bottom
+    entao tem que zerar o resto dos lados*/
+    border-top:0;
+	border-right: 0;
+	border-left: 0;
+	cursor: pointer; /*mostrar que eh clicavel qnd passa o mosue*/
+}
+
+/*passar o mouse e botar efeito hover. - mudar background apenas*/
+.form input[type=submit]:hover{
+	background-color: #323665;
+}
+
+
+.container-list{
+	padding:30px; /*distancia do conteudo por dentro*/
+	margin-top:100px; /*distancia do elemento de cima*/
+	float: left; /*ficar na esquerda*/
+	width: 519px;
+	height: 270px;
+    /*background com rgb PARA colocar opacidade*/
+	background-color: rgba(33,35,67,0.7);
+}
+
+/*por padrao a lista fica pra fora, 
+entao chamar a lista ul dentro do container-list 
+e estilizar a posicao da lista, botando para dentro(inside)*/
+.container-list ul{
+	list-style-position: inside;
+}
+
+/*estilizando os itens, margem pra distanciar um do outro*/
+.container-list ul li{
+	margin-top:18px;
+	color: white;
+}
+/**_________________________________________________*/
+
+.container-2{
+	min-width: 1200px;
+	padding:40px 0;/*cima bauxo 40, lados 0*/
+	background-color: #ddd; /*background pegando hexadecimal a partir do design*/
+	text-align: center;/*tudo dentro fica centralizado(titulo e textinho)*/
+}
+
+/*normalizando a fonte do titulo*/
+.container-2 h2{
+	font-weight: normal;
+}
+
+
+.container-2 p{
+	width: 698px; /*botando tamanho especifico no texto*/
+	margin:15px 0; /*margin apenas em cima e embaixo(embaixo eh o outro container)*/
+	/*mesmo com largura definida, ele se comporta como bloco, 
+    entao nao tem como centralizar, apenas se estivesse 100%.
+    entao tem que colcoar display inline-bloock*/
+    display: inline-block;
+    /*tudo centralizou, ate o alinhamento do texto, entao corrija*/
+	text-align: justify;
+}
+
+/*imagem de flecha pra baixo*/
+.arrow{
+	position: relative;
+	top:60px; /*com a posicao relativo, consigo mexer na posicao,
+    entao se eu botar distancia de 40px do topo, vai ficar grudado embaixo pq
+    40px eh o tamanho do padding
+    se colocar mais(60), vai passar pela metade pra baixo*/
+	left:50%; /*50% na esquerda, no meio entao*/
+	margin-left: -20px; /*mas nao pega a partir do centro, e sim da pontinha na esquerda,
+    entao tem que diminuir metade dos pixels para equilibrar
+    -poderia ter usado o text-align no elemento pai(container-2)*/
+	width: 40px;
+	height: 40px;
+	background-image: url('../images/arrow.png');
+	/*nao precisaria do background size caso botassemos o tamanho fixo*/
+    /*botar isso pq o tamanho de 40px eh menor que o original, entao tem que
+    proporcionalizar*/
+    background-size: 100% 100%;
+}
+
+/**_________________________________________________*/
+
+.container-3{
+	min-width: 1200px;
+	padding:90px 0; /*distancios do conteudo apenas na vertical*/ 
+}
+
+/*arrumando o titulo*/
+.container-3 h2{
+	text-align: center;
+	color: #462663;
+	font-weight: normal;
+}
+
+.container-section{
+	margin-top:40px; /*distancia pro titulo*/
+}
+
+.container-section{
+	text-align: center; /*filhos centralizados(os singles)*/
+}
+
+.container-single{
+	float: left; /*comecando cada um na esquerda*/
+	width: 33.3333%;
+	padding:30px;
+}
+
+/*arrumando fielmente tamanho da imagem*/
+.container-single img{
+	width:70px;
+}
+
+/*os textozinhos*/
+.container-single p{
+	display: inline-block;
+	text-align: justify; /*alinhados esquerda*/
+	padding:10px 25px; /*padding cima baixo 10 esquerda direita 25*/
+}
+
+
+/**_________________________________________________*/
+
+.footer{
+	/*clear:both;*/ 
+    /*se nao limpa as flutuacoes no finaol, o espaco nao eh considerado*/
+	border-top:2px solid #888888; /*so no top p parecer divisal*/
+	padding:20px 0;
+	text-align: center;
+	color: #888;
+}
+
+.footer p{ 
+	margin-top:8px; /*distancia pra cima, entre eles e o container anterior*/
+}
+
+/*o % no padding, eh baseado no WIDTH do elemento pai*/

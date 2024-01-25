@@ -1,0 +1,318 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:"Open Sans";
+}
+
+@font-face {
+	font-family:"Open Sans";
+	src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+
+html,body{
+	height: 100%;
+}
+
+
+/*1 - div center com*/
+.container{
+	width: 100%;
+	max-width: 1200px;
+	margin:0 auto;
+}
+/* 2  */
+.clear{
+	clear: both;
+}
+/******/
+/*! fazer header com palaras/logo no html*/
+/*3 - header com palavras/logos - background e padding*/
+header{
+	background-color: #D6D6D6;
+	padding:10px 2% 40px 2%;
+}
+
+/*4 - as logos do header - dimensoes, lados e cor */
+.logo-1{
+	float: left;
+	width: 150px;
+	height: 60px;
+	background-image: url('../imagens/logo1.png');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	/*background-color: purple;
+    usando cor pra posicionar certinho antes de tacar imagem
+    (lembrar que estamos fazendo o container que vai a imagem dentro,
+    que ocupara tudo, ficara no meio, nao repitira, e o background-color eh o fundo*/
+    /* melhor usar imagem inves de background-image,
+    pq eh so botar o width e o aspect ratio ja calcular automaticamente */
+}
+
+.logo-2{
+	float: right;
+	width: 160px;
+	height: 60px;
+	background-image: url('../imagens/logo2.png');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	/*background-color: green;*/
+}
+
+/* 5 -  fazer responsivo do header */
+
+/*!fazer a section com div de imagem de fundo*/
+/* 6 - section com a imagem de fundo - dimensao, padding */
+section.cover-form{
+	width: 100%;
+	/* padding: 0 2%; nao precisa mais, pois vamos alinhar tudo com position*/
+}
+
+/* 7 - a imagem - dimensao, background-position/size/image */
+
+.bg{
+	height: 560px;
+	background-position: center;
+	background-size: cover;
+	background-image: url('../imagens/bg-form.jpg');
+	position: relative;
+}
+
+/*! fazer a div da caixinha do form*/
+ /* 8 - caixinha do form - dimensao, lado, margin, position, top, background-color
+ -botei height maior que 100% p passar da imagem de fundo. mas so passa embaixo, entao
+ colocar position relative pra poder usar o top e subir a imagem um pouco */
+.form-container{
+	/*float: right; nao vamos mais usar isso, vamos usar alinhar logo usando o position absolute*/
+	/* margin-right: 40px; */
+	/*botar psoition relative no pai e abolsute no filho, ai alinhar com top right etc*/
+	position: absolute;
+	right: 30px;
+	top: -2.5%; /*pra subir metade do que o height passou do pai*/
+	width: 400px;
+	height: 105%;	
+	background-color: white;
+	box-shadow: 1px 1px 2px 1px;/*lados, blur e spread*/
+}
+
+/* 9 - no formulrio, estilizar o titulizinho - padding, cor, font-weigth/size, background-color */
+.form-container h2{
+	font-weight: normal;
+	padding:25px 15px;
+	color: black;
+	font-size: 18px;
+	background-color: rgb(234, 236, 239);
+}
+
+/*! fazer o form com "p" e "inputs(text, submit)"*/
+/* 10 - container do formulario, margin e padding */
+.form-container form{
+	margin-top:20px;
+	padding:15px;
+}
+
+/* 11- os textinhos do formulario, font-size e cor */
+.form-container form p{
+	font-size: 14px;
+	color: #525252;
+}
+
+
+
+/* 12 - os inputs - dimensao, borda, padding na esquerda, line-height */
+.form-container form input[type=text]{
+	width: 100%;
+	border:1px solid #ccc;
+	height: 45px;
+	line-height: 45px; /*tamanho de distancia das linhas, e centralizar com base na altura*/
+	padding-left: 10px;/*usamos apenas o pádding left, pq se usar o padding geral, no mozilla fica incompativel
+    entao eh melhor usar o line-height*/
+}
+
+/* 13 - no input do submit - background-color, color, dimensoes, cursor, borda */
+.form-container form input[type=submit]{
+	background-color: #033C50;
+	text-transform: uppercase;
+	color: white;
+	width: 100%;
+	font-size: 25px;
+	height: 50px;
+	cursor: pointer;
+	border:0; /*borda vem por padrao no submit*/
+}
+
+/*!fazer uma div com nome de form-wraper pra embrulhar cada input
+/*!e tacar uma margin em todos ao mesmo tempo*/
+
+/* 14 - fazer as margins.
+nesse, pega todos menos o primeiro
+naquele, pega apenas o ultimo */
+.form-wraper:not(:first-child){
+	margin-top:40px;
+}
+
+.form-wraper:last-child{
+	margin-top:20px;
+}
+
+/*!criar section "chamada"*/
+/* 15 - botar padding e alinhar o containerzinho dessa chamada */
+/*pra botar text-align: center, o proprio elemento tem que ser inline-block
+PARA conseguir definir a largura de 100%*/
+section.chamada{
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+	/*o bg tem 500px, e o form tem 110% do height dele. ou seja, 50px a mais
+	entao temos que subir essa section 50px para ocupar o espaco em branco que essa
+	sobra causa. mas fica por cima do form, entao bota um z-index como 1 e no form como 2*/
+	/* vamos tirar isso pq vms posicionar o form usando position */
+	/*position: relative;
+	top: -50px;
+	display: inline-block;*/
+}
+
+
+/*16 - o section ta zoado...botamos um center dentro e mudamos a cor e botamos um padding*/
+section.chamada .container{
+	padding: 50px 0;
+	background-color: #29526d;
+	padding: 70px 0 30px 0;
+}
+
+
+/* 17 - estilizando os textinhos da chamada..
+-dimensoes, displays, cores e fonts*/
+/*!encapsular uma div em ambos para CASO MESMO tendo espaco para os dois ficarem no meio,
+tem que quebrar a linha*/
+section.chamada h2{
+	width: 96%;
+	max-width: 700px;
+	display: inline-block;
+	color: white;
+	font-size: 24px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+section.chamada p{
+	width: 96%;
+	max-width: 700px;
+	display: inline-block;
+	color: white;
+	margin-top:10px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+/*!criar section para mosaico, botar o center dentro, e fazer a div com cada dupla de itenzinhos*/
+
+/* 18 - botar a div da dupla como flex */
+.flex-mosaico{
+	display: flex;
+}
+
+/* 19 - fazer a divisao de espacos dos dois itens, o da imagem tem propriedades de imagem tbm */
+.item-1-mosaico{
+	background-position: cover;
+	background-size: cover;
+	width: 60%;
+}
+.item-2-mosaico{
+	padding: 60px 40px; /*tbm ajuda a aumentar a visao da imagem, no caso o 60, cima baixo*/
+	width: 40%;
+}
+
+.item-2-mosaico p{
+	color: white;
+}
+
+/*! fazer o footer com paragrafos*/
+/* centralizar, redimensionar  */
+footer{
+	text-align: center;
+	padding: 20px 0;
+}
+/*pode botar uma imagenzinha la por cima dos paragrafos, 
+e setar o width, ja com aspect ratio calculado*/
+
+footer img{
+	width: 140px;
+}
+
+footer p{
+	margin-top: 8px;
+}
+
+/* a seta no meio da linha */
+.icone-seta{
+	position: absolute;
+	left: 50%;
+	top: -32%;
+	transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	width: 64px;
+	height: 64px;
+	background-size: 100% 100%; 
+	background-image: url('../images/arrow.png');
+}
+@media screen and (max-width: 768px){
+	.item-1-mosaico{
+		width: 100%; /*o display flex tenta deixar tudo alinhado, entao nao fica 100%
+		entao, vmos trocar o flex pelo block */
+	}
+	
+	.item-2-mosaico{
+		/*mas como o display block deixa o background sem tamanho, 
+		entao temos que botar a altura manualmente*/
+		/*height: 400px; vms botar responsivo.*/
+		padding-top: 80%; /*qnt maior, maior fica a imagerm*/
+		width: 100%;
+	}
+
+	.flex-mosaico{
+		display: block; 
+		text-align: justify; /*opcional*/
+		/*agora o bagulho ignora a ordem. antes era flex, agora fica um embaixo do outro
+		e nao importa a ordem, que podia ser manuseada pelo flex.*/
+		/* agora fica na ordem que ta o html */
+	}
+}
+
+@media screen and (max-width: 510px){
+
+	header{
+		text-align: center;
+	}
+
+	[class^="logo"]{
+		margin-top:10px;
+		display: inline-block;
+		float: none;
+	}
+
+}
+
+/* para centralizar o form quando diminui */
+@media screen and (max-width: 960px){
+	.bg{
+		height: auto;/*quando diminui a tela, parece que a altura muda, buga sei la
+		entao botemos automatica em tudo!*/
+		padding: 40px 0;
+		text-align: center;
+	}
+
+	.form-container{ 
+		position: static; /*por padrao eh absoluto*/
+		display: inline-block;
+		/* o scroll come o form pois ele tem uma width fixa, entao,  
+		poe uma width quase 100%*/
+		height: auto; /*tirar a altura fixa que tinha*/
+		width: 96%;
+		max-width: 400px;
+	}
+
+}

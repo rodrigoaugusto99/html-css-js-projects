@@ -1,0 +1,275 @@
+---header (center)--- (padding)
+[html - logo > img
+nav > ul > li]
+-logo (float, width)
+-nav(float) (padding)
+-ul (style)
+-li (float, size, text-transform)
+-a (text-decoration)
+
+(como so tem uma ul, nao precisamos colocar classe pra diferenciar no css)
+
+---section---(center)
+[html - mosaico-duplo > mosaico-img
+maosaico-wraper > mosaico-duplo] (div mosaico-duplo contem 2 img)
+(div mosaico-wraper contem os 6 mosaicos-duplos com 2 imagens cada, totalizando 12)
+
+-mosaico-duplo(float, width(calc 100%/6))
+-mosaico-img (width, padding-top(h), color, border)
+
+(border branca pra dar sensacao de espacamento)
+
+
+---section2---(center)
+[html - section > center > box-servico box-servico - box servico]
+(as 3 divs dos box, tudo dentro do center, dentro do section2.)
+-container - alterar as config padroes. (max-width)(align-items, text-align,
+display flex, relative(to use top))
+-box-servico (apenas backgrounds. image, size, position, repeat.)
+-box-servico - estilizar 2 dois iguais e um diferente(width e background-color
+diferentes. paddings iguais.)
+-box-servico h3/p - setar fonts, color, margin-top, text-transform.
+
+(como colocamos o background-image no box-servico geral para todos e depois
+colocamos background como uma cor depois, ele sobrescreve. entao, temos que mudar
+para background-COLOR e ai sim colocar a cor. )
+(tem um que nao tem essa imagem, entao colocamos background-image: none, para agora
+sim sobrescrever.)
+(como queremos que a imagenzinha fique la embaixo e no centro, usamos o position
+no box-servico para colocar center bottom...ficou muito colado, entao vamos colocar
+center, e inves de bottom, calc(100% - 5px) (100% fica grudado em baixo))
+
+
+---section3---(center)
+[html - div perfil-wraper > img-perfil  texto-perfil](div perfil-wraper
+contendo div da foto e outra do texto(h2, p).)
+center (diminuir max-width - 800px)
+perfil-wraper - padding-top 60% (60% dos 800px.) - altura de 60%
+(para depois colocar a imagem com width 40% dessa width de 60%, 
+e colocar o height como 100%, deixando assim a imagem com altura maior q largura)
+(entre o perfil-wraper com 60% de padding-top e a imagem com 40% de width,
+temos outra div pra colocar o display flex, e colocar w e h como 100%, ai
+o 40% da imagem herda os 100% do pai com flex - TIVEMOS que fazer isso pq
+o flex nao le o padding-top com porcentagem, apenas o height com porcentagem.)
+(FIZEMOS desse jeito com flex, pq pra aplicar o responsivo, fica MUITO mais facil, 
+naquela parada de diminuir tela e deixar um embaixo do outro) 
+
+---responsivo section3---
+-pegar a div entre o perfil-wraper e a imagem/texto, aquela div que fizemos pra colocar 
+w e h 100% pra PODER usar o flex.
+-vamos tirar o flex, trocar por inline block e jogar o conteudo no centro com t.align.
+- vamos pegar a propria imagem, aumentar o width e padding-top, colocar height auto.
+-tbm vamos pegar o texto, dar width 100% pra todo o bloco, e padding.
+-tudo isso colocar display inline-block tbm
+
+(no primeiro media da imagem, vms aumentar, ja ta feito
+mas se diminuir mto a tela e o width novo for quase 100%, vai ficar mt grande)
+-entao nessa media query vamos aumentar apenas um pouquinho, e aumentar mesmo de verdade, quase 100%, 
+na proxima media query, com a dimensao bem menor. essa com 580px por ex, a primeira com 768px.
+
+(nao precisamos encapsular numa div pra usar display BLOCK, pq como o width do texto JA É 100%, 
+entaoa utomaticamente ele cai pra baixo. entao cada linha fica numa linha individual)
+(nós estavamos com display flex e ativamos o display inline block, quando mudamos pro mobile)
+(usamos o flex pra usar no desktop, pra deixar o alinhamento vertical e deixar a imagem 100% responsiva.
+E AI QUANDO chega no responsivo, usamos o inline-block e podemos fazer toda a manipulacao pro ali)
+___(pq o flex deixa o bagulho mais repsonsivo?)
+
+
+
+---responsivo dos 3 boxs---
+pegar o box geral, com display flex, position relative, align-item e text-align,
+-e inves de ficar tudo na horizontal, fica na vertical, uma coluna(flex-direction: column)
+(como ele ja ta com align-itens center, ele ja fica alinhado na horizontal, e nao
+mais na vertical.)
+-agora pega o trio do mesmo box, so que com mudancas de 2 iguais e um diferente.
+-width do meio fica 94%, e os outros 90%, pra ficar quase no limite da tela e o 
+do meio um poucop maior, assim como era na row.
+-colocar max-width neles tbm, pra apenas ficar tocando no limite quando estiver
+com a tela bem pequeninha, se nao, com os 90% sem limite, nao vai mais ficar uma 
+caixinha pequena, vai ficar com width gigante quando a tela ainda nao for tao pequena
+(o do meio tem limite um pouco maior tbm, obvio).
+-diminuir o padding deles tbm, pra diminuir a altura da coluna(80px 2% > 40px 2%)
+
+---responsivo logo e menu---
+-podemos colocar pra logo dar uma leve diminuida quando chegar em 480px, ou ficar no meio e usar block, sei la
+-PODEMOS fazer a troca de menu, de desktop pra mobile. 
+[no html, duplicar a marcaçao do menu, uma com classe mobile e outra desktop]
+-o do mobile no css normal permanece com display-none
+ ->quando chega em tal dimensao, o desktop da display none e o mobile da display block(n esquecer do float)
+-aplicar imagenzinha de menu hamburguer nesse menu-mobile. depois de setar display none e float la no main,
+vamos colocar um tamanho especifico nesse menu, e de background vamos colocar o hamburguer.
+icone fica por baixo do menu.
+-na UL do menu MOBILE, vamos estilizar, colocando la pra esquerda com absolute(text-align, width 100%
+ele vai ocupar o espaco todo com o width 100% e jogar o reosto la pra cima. 
+(pq posicionar isso com left e top atraves do abolsute, e nao com relative?)
+-agora dar um top pra abaixar, e deixar o menu embaixo do "header", da logo
+-PRA FICAR POR SEMPRE POR CIMA DE TUDO, colocar z-index bem grande e um background branco pro texto
+nao ficar dentro de outro texto ou cor.
+- no li, botar padding geral pra espacar os itens do menu, 
+-no menu-mobile, que tem o icone, podemos dar um margin-top pra abaixar, mas se usarmos o top
+do position relative para isso, como nós mexemos na ul atraves do absolute, a ul absolute 
+vai herdar a position relative do mobile geral e vai bugar, tentando ficar dentro do relative.
+(nao esquecer de deixar essa ul com lis, com display none como padrao. botar pra aprecer só depois
+com javascript.)
+
+
+---preparar para colcoar videos embaixo da section3---
+(o perfil-wraper2 esta em cima e, portanto, quando ficar no mobile e sem display flex, vai bugar, entao
+tem que botar o height desse perfil-wraper como automatico, e botar posicao estatica.)
+(se sobrar mto espaco em cima, vamos zerar o padding-top.)
+
+[html - div videos > center > box-video (3)]
+
+-estlizar a base da row de 3 videos.(width 33.3%, float left) 
+(altura - padding-top calc(33.3% * 0.6) - botando altura da dimensao que queremos.)
+(pq usar paddint top pra setar altura inves de height?)
+- limpar o float com clear...como nao leva em conta a altura, ele fica flutuando la embaixo,
+quando limpa, ai meio que penetra na tela realmente, e a altura eh levada em conta, e fica com paddings
+certinhos.
+
+-como colocar os videos? IFRAME!
+(os 3 videos estao juntinhos, botamos as dimensoes e o float.)
+(cada iframe ta dentro de uma box - a box ja fizemos)
+-posicionar cada iframe em cada box (absolute, left e top 0. w e h 100%(o tamanho
+dos proprios boxes, com 33% de largura e um pouco menos de altura.))
+(p usar esse absolute, claro, tem que colocar o relative no pai, o box.)
+-ta tudo colado, vamos espacar - fazer com border(com padding tem q encapsular)
+
+(dessa maneira que fizemos os box, vai ficar tudo 100% responsivo)
+(qndo ficar pequeno, vamos deixar em coluna, obvio)
+
+--- responsivo dos videos ---
+-trocar o 33% por 100%, no width e no calc. 
+(no inicio do responsivo, vai ficar muito grande, depois que diminui mais, É
+que fica bom. entao vamos fazer duas camadas de responsivo nisso)
+-no 768px por exemplo, trocamos o 33% por 70%,
+-no 580px por exemplo, trocamos o 70% por 100%.
+
+-dar um text-alin center na div principal pra centralizar a coluna de videos.
+consequentemente botar inline block em cada video.
+nao vai centralizar pq setamos o padrao com float left. entao no responsivo,
+colocar float none
+
+
+---section4 - vamos fazer aqueles 9 textos.---
+[html - section4 > center > section4-container(UMA coluna) > container-single(3)
+-serão 3 colunas.(section-containers.)]
+
+-section4-container(width 33.3% pra cada, com float left.)
+(fazer essa divisao depois de ter dado o center no contexto.)
+
+-no single(padding pra dar espacamento logo)(estilizar h2 e p(p - margin-top/padding))
+-se quiser botar um titulozinho antes dessa "grid", podemos dar um outro h2
+dentro da div geralzona, e pra diferenciar do h2 la do single, vamos usar">"
+-como esse titulo ta fora do center, podemos dar um padding nesse center pra
+distanciar, tipo um margin-top, mas prefiremos usar padding pra dar espacamento.
+(pq é melhor dar espacamento com padding do que com margin-top?)
+
+
+---section5 - depoimentos
+terá titulo, texto, imagem e nome
+[html - depoimento > center > depoimento-single > nome-depoimento]
+(texto do depoimento na tag quote)
+(titulo antes do center - depoimento dentro do depoimento single - imagem e nome
+encapsulados em nome-depoimento )()
+
+-h2 no depoimento(titulo) (text-align,cor,size)
+-center (padding cima e baixo. centralizar com max-width e nao com text-align.
+por que??)
+-depoimento single - text-align center
+-quote (font and color)
+-nome-depoimento (img e nome) (padding cima baixo)
+img -w e h iguais, border raiuds metade.(circulo)
+nome - span, (font and color)
+(queremos que fique do lado da imagem, porem la em cima, entao vamos dar
+um display inline block e vertical-align top - pq tem que dar inline block? é 
+pra nao agir como bloco e ficar por cima da imagem?) (se quiser nao deixar tao no topo
+so fazer a parada do relative + top .)
+
+(quero que apenas um depoimento fique no bloco - width 100% no depoimento-single, 
+depois de center)
+
+
+---sessao6--- socialMedia
+[html -  sessao6 > instagram > img/p](sem contexto(center))
+instagram (text align, padding, background, w100%, float left( PORQUE ?))
+p (padding, cor, size - espaco entre a quebra de linha? line-height)
+
+-embaixo tem uma mosaico de 9 imagens
+[html - div mosaico com 9 imagens.]
+-mosaico - (float left, w100%)
+-img - (float left, width e padding-top = calc(100% / 9))
+(se colocar tipo um numero dentro da img, vai ficar EMBAIXO, pq a altura eh 
+padding-TOP)
+
+--responsivo desse mosaico--
+(quando chegar em 1024, inves de aparecer 9 imagens, vai aparecer 6, e as outras
+vao pra baixo, mas queremos que sumam.)
+-no mediaquery
+-img (trocar no width e padding-top, o 9 pelo 6,) 
+-mosaico > img/div(display none) nth-of-type(1n + 7)(todas as div a partir do 7.)
+(se for 2n, vai dar display none de dois em dois, entao vai sumir o 7 e depois o 9, 
+sobrando o 8.)
+-fazer o mesmo, mas agr sobrando 3
+
+[html - encapsular a img do instagram com "a", e usar href pra o site e
+target: _blank pra abrir uma nova janela]
+
+
+---sessao7- formulario---
+-nao vamos usar center
+[html - contato{geral} > (form){tag} > form-wraper w100/50{textfields}] - div com duas classes
+
+-div geral, contato (padding 60px(cima baixo) e 2% pros lados pra nunca grudar quando diminuir tela)
+-h2 fora do form (align, cor, size)
+nao precisamos usar o contexto center, vamos aproveitar logo o form. 
+-form (w 100%, max-width. pra centralizar - colocar margin 30px AUTO)
+-form-wraper, os textfields (float left, padding nos lados pra aproveitar e criar um espacinho,
+margin-top (em cima de cada label) )
+-w100 (w100%)
+-w50 (w50%) (colocar essa classe no html nas divs dos textfields que estiverem sendo divididas)
+-span(labels) - size, cor
+.INPUT text - w 100% (ja tem max-width), height fixo em pixels, line-height igual o height.
+padding-left padrao, uma borda e margin-top (colocamos line-height e nao padding geral pq no
+mozilla buga;)
+.INPUT textArea, width, margin-top e borda iguais o text.
+-muda: nao eh padding-left, eh geral, nao precisa de lineheight, 
+height é fixo tbm, mas é maior, e resize none, pra nao podermos
+remodelar no proprio navegador
+.INPUT submit (w100%, height 35px, cor, cursor, background, border 0.
+display inline-block)
+(pra centralizar esse botao, podemos botar text-align center na div dele
+pelo proprio html, ou podemos fazer do usando position relative, left 50% 
+e transformX -50%)
+
+-NAO ESQUECER DE DAR clear
+(como ta flutuando, o navegador nao conta a altura. entao embaixo
+o padding nao pega, fica grudado na tela...entao, vamos tirar 
+o float pra poder penetrar na tela e o sistema ajeitar o padding)
+
+Por que centralizar o form com margin auto inves de text-align center?
+Setar width do form com width 100% e colocando max-width. porque fazer assim 
+inves de botar logo width uns 60% da tela? - pq nao queremos que o textfield fique
+muito pequeno;
+
+
+---responsivo form ---
+ficou pequeno? muda o w50 pra w100, trocando width 50% p 100%¨
+
+---FOOTER---
+[html - footer > center > footer-block (3)]
+
+-footer (padding-top pra altura, 2% dos lados, bg color)
+-center (max-width 1100px)(deixar menor)
+-footer-block, 33,3% float left, padrao!
+-footer-block h2/p - color, font, margin-top, etc
+
+---responsivo footer---
+diminuiu? 
+-footer (text-align)
+-footer-block (width 100%, float none.)
+(pq nao dar display block pra quebrar linha inves de botar 100%?)
+
+(qndo for colocar as imagens, tem que adulterar...no repeat, 
+size 100% 100% etc. alias, qual é melhor pra conter? size 100% 100%
+ou position contains?)

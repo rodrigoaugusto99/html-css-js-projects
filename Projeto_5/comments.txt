@@ -1,0 +1,215 @@
+dimensao da imagem do banner - redimensionar do jeito que quiser em varias telas no media query
+(bg-size/position - porcentagem, auto, cover, center, etc)
+
+chegou no responsivo do text-banner, diminuir padding, font-size, 
+responsivo do header, display none no mobile, display block no responsivo. (none no desktop responsivo)
+- best whey to do logo/hamburguer - float, w == h, bg-size 100% 100%
+(a ul do menu ta ali dentro. temos que bota-la na esquerda, nao podemos usar o position relative na ul
+pq o proprio menu-mobile, com a logo e a ul estão dentro de um relative, entao se usar relative, vai ficar
+um dentro do outro.)(mas eh bom ficar tudo dentro pq fica melhor para mexer)
+(dentro do mobile tem a imagem, e tbm tem a ul.
+se quisermos posicionar a imagem, vamos ter que usar margin ou padding, pq se usarmos o position relative
+e usar o top/left/bottom/right, depois nós não poderemos usar o position absolute para mexer exclusivamente
+na ul, botando absolute(top e left zero) com width 100%, alinhando no centro)(agr manipula o top ate
+ficar embaixo da logo/header)(sobrepor tudo com z-index 999)(manter o display none, vamos acionar isso
+apenas no js.)
+(se quiser botar a ul fora do mobile, é uma ideia, mas assim dentro é uma forma que fica
+mais organizado e melhor pra mexer)
+
+
+-fazer o h2 com linhas do lado
+div-geral > line-titulo > ln1
+queremos SOBREPOR o h2 na a linha
+temos o h2 dentro da div-geral.
+queremos colocar a linha por baixo do h2, entao vamos criar o "terreno" dessa linha em outra div dentro 
+da div-geral. a "line-titulo", setando o width maximo, margin 0 auto pra centralizar,
+ centralizando o conteudo(linha) com text-align center e 
+usando position relative para poder setar essa linha com o absolute herdando. (evitamos herdar o position
+relative da propria div geral pra posicionar a linha, MAS POR QUE NÃO DÁ PRA FAZER SEM A "DIV-AUXILIAR" 
+line-titulo???? com a ln1 absolute herdando a relative da div-geral direto??)
+
+dessa forma, como é block, vai ficar um por cima do outro. (ambos no meio, setamos o align center no h2 
+e no line-titulo pra centralizar a linha.)
+vamos colocar a div-geral como display inline-block pra poder tudo ficar na mesma linha e colidindo.
+(a linha não vai passar por dentro do h2 pq o h2 ta com background-branco, dando a sensacao que a linha
+"para e volta" no meio do caminho.)
+-por fim, só posicionar a linah com o top do absolute e colocar padding lateral no h2 pra espaçar a linha.
+
+-colocar as 3 imagens embaixo certinho com o titulo e as linhas...
+(colocar o line-titulo e a vitrine com 3 imagens com o mesmo max-width)
+(a vitrine, colocar na esquerda e com 33,3%)
+(cuidado ao estilizar o h2, tem que diferenciar, pois tem mais de um)
+no botao(link):
+(usar margin. nao usar padding pra mexer no espacamento interno pq vamos deixar o width fixo)(porque?) 
+(definir w fixo, line height fixo, display block pra pegar essas dimensoes, text align,  border-bottom )
+nao esquecer de limpar tudo, pra poder levar em conta o height do objeto flutuado e sendo assim, o padding de baixo aparecer.
+(no responsivo, definir um width maior que o 33,%, alinhar no centro e sem float.)
+( e dar inline-block na vitrine - inline-block no "a" (botao) pra ficar centralizar junto com o resto)
+
+
+-sobre o half1 e half2, half1 com 50% c float left, e um wraper pra mexer apenas dentro
+-centralizar o conteudo? text aling center no pai e display inline block no wraper,
+ja que queremos o botao do ladinho.(text-align)
+pra posicionar a lista, ir testando com list style position, margin, padding.
+agora pra botar o botao do lado da ul(ele ta embaixo), colocar 
+inline-block nos dois, e vertical align botton no botao p descer
+(reescrevemos o display, no botao padrao, ta BLOCK)
+(no responsivo, pro botao cair, trocar pra block de novo. 
+e tirar o margin-left todo, pra coincidir com o inicio da li da ul)
+((TEM QUE FAZER o responsivo acontecer ANTES de quebrar.))
+
+-half2 = w50, floart left. (tudo)
+-depoimento-single(textinho) = margin top / p = size
+
+-classe pra linha de baixo, que tem duas imagens e o nome, na mesma linha.
+-classe para as imagens, outra classe pra o nome
+
+classe img-name - float left & margin-top
+das imagens - float left   (na tag img = pointer e margin)
+do nome - float RIGHT, assim fica tudo na mesma linha
+(nao vai pra direita pq nao temos width definido, entao vamos colocar nessa classe img-name,
+width 100% e um max width)
+
+problema! o height do half1 nao fica igual ao do half2, e nao vamos colocar height fixa
+pq dai teria que mexer no padding ou margin e fica testando em um deles.
+entao vamos na div que tem encapsulado o proprio half1 e half2, e vamos dar
+display flex, que ai a altura acompanha PROS DOIS;
+
+problema! como o conteudo do half1 ta centralizado no meio, caso a tela seja mt grande
+ele vai ficar longe do conteudo do half2, entao vamos trocar o text-align center por right
+e colocar um padding-right em pixels.
+
+no responsivo, botar o div-pai com os dois halfs, com flex direction pra coluna E
+botar os dois com width 100% (tambem botar o padding px % igual nos dois, pra quando diminuir,
+os dois ficarem "alinhados")
+(no half1, que colocamos o text pra direita, colocar de volta pro centro.
+e no padding, colocar o mesmo que tava no padrao.)
+(caso nao fique no centro,  deve ser pq botamos um padding ou margin pra espaçar o text
+quando fizemos o float-right. teria que resetar isso no responsivo pra ficar realmente no centro...
+pode ter sido no half1 ou half1-wraper)
+
+(no final, vamos testar o responsivo, se der algum bug, tem que ir testando ate ficar compativel 
+em todas as telas) [ou seja, ver oq quebra antes de acontecer o proximo media query, e talvez
+tenha que subir o max-width pra responsar antes, ou tenha que fazer outro media query]
+
+
+-quando for copiar a div com h2 com a linha por dentro, nao esquecer de ir no css
+e tirar a especificacao que faz com que aquilo seja so pra outra classe.
+(assim posso usar aquele modelinho quantas vezes eu quiser, so trocar o h2.)
+
+
+-qndo fizer o form, colocar max-width e centralizar usando o margin 0 auto. porque?
+- setar o width 50% e 100% nos inputs, que ja ficam do jeito certinho
+-o botao é do tipo submit, os outros que fizemos foi tudo link "a", 
+entao parar usar aqueles mesmos estilos, podemos colocar a esse submit com a classe
+que usamos nos links, inves de copiar o css dos links pro botao.
+-pra centralizar o botao, vamos chamar o form do contato, e selecionar
+o input-wraper número 5 atraves das pseudoclasses. (botamos duas classes em cada single,
+um é imput-wraper pra mexer nos inputs, e o outro é w50/100, pra decidir a width)
+e dar o text align center.
+
+-limpar as flutuacoes pra aparecer direitinho o espacamento interno
+
+-fazer o footer - nav ul li - nav e li com float left e um paragrafo com float right
+-responsivo? display none no nav, centralizar tudo, tirar o float do p(fica no meio)
+
+--------------------------------------------
+-fazer a troca de pagina, criar um novo .html e manter apenas o header e o footer.
+-colocar no href dos menus e do rodape, o venda.html.
+-colocar o style fingindo que ta selecionado, no li da opcao da pagina.
+(n esquecer de colocar o index.html no href tbm)
+
+
+-height minimo - minimo pq pode ser maior que isso;
+
+-fazer a barra com cor dentro, uma div pro negocio todo, com borda
+outra div pro proprio bagulho vermelho (usando relative-absolute-left)
+outra div pra colocar o indicador pra colocar o mouse, dentro da barra
+-deixar o indicador dentro da barra mas subindo um pouco pra cima e pra baixo?
+coloque uma altura um pouco maior que a da barra, e suba a metade do valor ultrapassado
+no top em pixels.
+-deixar o indicador em cima do limite do bagulho vermelho? colocar um width dele 
+igual o do vermelho, mas com o calc, diminuindo metade do width do indicador, pois
+o ele fica 30% de acordo com a esquerda, e nao com  o centro
+
+2 paragrafos na mesma linha, um na esq outro na dir
+-float left no nth-of-type(1) e right no (2).
+e no p geral, estilizar cor e size.
+
+no form-venda-single, que é de cada opcao, 
+label - estilizando a caixinha de clicar. colocar inline-block.
+span - o texto do lado - vertical align top. colocar inline-block
+
+--estilizar o checkbox, a caixinha selecionada, pra aparecer uma bolinha preta no meio
+botar position relative na div da caixinha(label)
+botar absolute na div do circulo, left 0 e top 0
+como alinhar no centro? top e left tem que ter a metade do tamanho da label, 
+diminuindo a metade do tamanho do circulo. 
+--quando estiver selecionado, dê um display block 
+(input type checkbox: CHECKED + LABEL >. circle)
+(o + é pro elemento que está depois no html, ou seja, a label(caixinha) e pega o que
+ta dentro da label, pega o circulo. )
+
+---na vitrine do lado, colocar float left e width 70%, pois colocamos 30 na sidebar
+que tem a barra e a checkbox
+
+- responsivo
+no responsivo, se a barra ficar por cima da vitrine, provavelmente ela ta com 
+width fixa. entao coloque em porcentagem(90%)
+- responsivo
+quando as imagens ficarem mt pequenas, colocar a vitrine pra ficar inves de 70,
+100%, pra descer e ficar embaixo da sidebar
+- responsivo
+alinhar a vitrine no centro, nao precisa mais de left pq ja ta na esquerda
+colocar width 100% inves de 30% na sidebar pra alinhar tbm
+-terá que dar display inline-block na div que tem a barra, a div search1, pra
+ela respeitar o center e alinhar-se, mas porque?
+-----------------------
+
+-apareceu um scrollbar e vc n tem ideia do pq? em ultimo caso, de um overflow hidden
+
+
+--comentarios sobre a pagina de navegacao do mais detalhes(veiculo-teste)
+no html, div geral, div da foto, div da galeria, div de cada imagem.
+e depois disso tudo, por fora, mas dentro da div geral, a div pra a descricao
+do carro. englobar tudo num center.
+-dividir a  div da foto e da descricao com 60 / 40
+-na galeria embaixo, com scrollzinho. ela tem width do tamanho da foto, 60
+vamos setar width 100 nela. queremos botar 6 fotos, mas com 3 aparecendo
+e tendo uma scroll pra deslizar.
+vamos entao criar uma wraper dessa galeria. botando um width de 200, maior que 100
+ou seja, vai ter espaco pra colocar 6, mas dará overflow.
+as IMAGENS - float left(p deixar alinhado) e width...33,3%?
+nao, pq agora vai fazer referencia nao aos 100%, mas aos 200% do filho do 100%.
+o calculo certo = calc(33,3% * 100 / 200) (33% de 100 por 200)
+-botar o paddint-top igual esse width pra altura ficar igual. 
+-multiplicar esse calc do heigh(paddint-top) por 0.4/0.6 pra imagem ficar um pouco menor,
+pois quadrada fica mt longe.
+-dps uma borda branca em cada p dar sensacao de espacamento
+
+-se quisermos botar depois uma setinha do lado da galeria, vamos criar um pai pra essa
+galeria, vamos colocar as setas dentro, botar relative no pai e absolute nas setas, setar
+o flot e o top50%, corrigindo com translate -50%(p ficasr centralizado na meiuca)
+
+fazer info-bread nessa pagina, em cima do carro, pra mostrar que saimos da home, fomos pra
+venda, dps estamos em "mais detalhes". usar links e setinhas do teclado. (nos links, colocar
+os html no href.) os links, como a, e as setas, como span, pra ser mais facil pra estilziar;
+
+--no responsivo, fazer o lance do width 100% no info-veiculo, pra ocupar a linha toda
+-centralizar a descricao embaixo da foto, com o "a" e "p" 
+-o "a" (botao) nao centraliza, entao colocar display inline-block
+-tirar o max-widthn do paragrafo pra ocupar mais na horizontal
+
+-o border-box do padding, o padding sempre vai sair da borda, tipo a borda nao se mexe, 
+apenas o conteudo. enmtao, se eu quero fazer um lance de fazer espacamento e ainda colocar
+uma cor de fundo pra fingir que ta selecionado, ai eu nao vou poder usar o border pra simular,
+vou ter que realmente colocar um padding pra manter a distancia da borda, pra dps preencher
+com o background que finge o selecionado.
+
+
+---pagina sobre
+fazer a imagem retangular, w100 e padding-top 60%
+pra imagem quadrada, top e padding-top iguais
+
+imagem e paragrafo do lado
+-ambos com float left, com porcentagem complementares

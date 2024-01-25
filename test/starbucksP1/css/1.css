@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.center{
+    display: flex;/*para podermos manipular todos os elementos filhos da forma que quisermos, 
+    com propriedades novas*/
+    flex-wrap: wrap;/*por padrao fica tudo numa linha so(nowrap).com o wrap, podemos manipular 
+    as dimensoes do tamanho que quisermos, e se ultrapassar, cai pra proxima linha*/
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+/*criar circulo e tacar no canto com absolute p ficar pra fora*/
+html, body{
+    height: 100%;
+    overflow-y: hidden; /*o tamanho maximo da janela, tem que ser a janela em ci, nao pode ter scrooll*/
+    overflow-x: hidden;
+}
+
+header{
+    height: 200px; /*pra ajudar a calcular la a posicao da bola*/
+    padding: 20px 0; /*pra nao grudar la em cima*/
+}
+
+.logo{
+    width: 50%; /*tacar o menu pra la*/
+}
+.menu{
+    padding: 30px 0;/*p alinhar mais com a logo*/
+    width: 50%;
+    text-align: right;
+}
+
+.menu a{ /*personalizando os links*/
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+section.sobre{ 
+    height: calc(100% - 200px);
+    /*calc pra colocar o bagulho verde la pra baixo */
+    position: relative;
+}
+
+.extras{
+    position: absolute;
+    bottom: -450px;
+    right: -500px;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    background-color: #017143 /*pegar valor - conta gotas no inspecionar do navegador*/
+    
+}
+
+.social-media{
+    position: absolute; /* absolute pq a pagina eh "estatica"*/
+    right: 510px; /*se for 0, some da pagina, pq o pai eh o circulo
+    e o circulo ta la fora, ai ele tbm iria la pra fora
+    entao, tem que colocar 500px pra longe da direita*/
+    top: 200px; /*jogando p baixo*/
+}
+.social-media img{ 
+    display: block; /* botando p ficar um em cima do outro*/
+    width: 20px; 
+    margin: 20px 0; /*distancia entre cada imagenzinha*/
+}
+
+.texto-sobre{
+    margin-top: 100px; /*jogando mais pra baixo*/
+}
+.texto-sobre h1{
+    font-size: 50px;
+}
+.texto-sobre p{
+    margin: 20px 0; /*20px pra cima e baixo e 0 pros lados*/
+    max-width: 800px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+.texto-sobre button{
+    background-color:#017143;
+    width: 100px;
+    height: 40px;
+    cursor: pointer; /*cursor mostra clicavel*/
+    border-radius: 10px; /*borda redonda*/
+    border: 0; /*sem borda*/
+    color: white; /*cor da letra*/ 
+}

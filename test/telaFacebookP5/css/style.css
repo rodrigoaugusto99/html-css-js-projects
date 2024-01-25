@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato";}
+
+@font-face{
+	src:url('../fonts/Lato-Regular.ttf');
+	font-family: "Lato";
+}
+
+.center{
+    max-width: 1200px;
+    padding: 0% 2%; /*padding responsiuvo p nunca ficar grudado no lado*/
+    margin: 0 auto; /* container sempre ficar centralizado*/
+}
+
+.clear{clear: both;}
+
+
+
+header{
+    background: #385898;
+    padding: 8px 0;
+}
+
+.logo{ /*n esquecer o clear*/
+    float: left;
+    color: white;
+}
+
+.logo h2{
+    font-size: 23px;
+}
+
+form.form-login{
+    float: right; /*form pra direita*/
+}
+
+.form-login .form-element { /*do ladinho*/
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.form-element label{
+    color: white;
+    font-size: 14px;
+    
+}
+
+.form-element input[type=email],
+.form-element input[type=password]{ 
+    margin-top: 4px; /*espaco entre label e input*/
+    height: 22px;
+    padding-left: 3px;
+}
+
+.form-element input[type=email]:focus,
+.form-element input[type=password]:focus{ 
+    outline: 0;
+}
+
+.form-element input[type=submit]{
+    padding: 1px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(62, 62, 245);
+    border: 2px solid rgb(54, 54, 209);
+}
+
+.form-element input[type=submit]:hover{
+    background-color:blue;
+}
+
+section.main{ /*esse ponto TEM que ficar junto*/
+    background: linear-gradient(white, #D3D8E8);
+    padding: 40px 0;
+}
+
+.img-lolita{
+    float: left;
+    text-align: center; /*deixando no meio dos 60% especificado.*/
+    width: 60%; /*se ficar maior de 60, passa dos 100% juntando com o abrir-conta e 
+    ocorre quebra de linha*/
+}
+
+.img-lolita img{ /*! para evitar que o form do lado fique por cima da imagem caso de scroll*/
+    max-width: 99%; /*se botar em pixel, tem a possiblidadezinha de bugar*/ 
+}
+
+.abrir-conta{
+    width: 40%;
+    float: right;
+}
+
+.abrir-conta h2{
+    color: black;
+    font-size: 26px;
+}
+
+.abrir-conta h3{
+    margin-top: 8px;
+    color: grey;
+    font-size: 21px;
+}
+
+form.criar-conta{
+    margin-top: 10px;
+}
+
+.w50{
+    width: 50%;
+    float: left;
+    padding: 0 5px;
+}
+
+.w100{
+    padding: 0 5px;
+    width: 100%;
+    float: left;
+}
+
+form.criar-conta input{
+    width: 100%;
+    margin-top: 8px;
+}
+
+form.criar-conta input[type=email],
+form.criar-conta input[type=text],
+form.criar-conta input[type=password]{
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    border: 1px solid blue;
+    border-radius: 3px;
+}
+
+form.criar-conta input[type=submit]{
+    color: white;
+    background-color: green;
+    height:40px;
+    border:0;
+    cursor: pointer;
+    max-width: 200px;
+    font-size: 19px;
+}
+
+form.criar-conta input[type=email]:focus,
+form.criar-conta input[type=text]:focus,
+form.criar-conta input[type=password]:focus{
+    outline: 0;
+}
+
+/*ter espaco entre tag e .class*/
+form .w100 h2{
+    font-size: 24px;
+    margin-top: 10px;
+    color: #1d2129;
+    font-weight: normal;
+}
+
+/*cada select*/
+form .nascimento{
+    /* colar */
+    float: left; 
+    margin-top: 10px ;
+} 
+
+/*APENAS DA BOLINHA*/
+.input-radio{
+    float: left; /*bolinha na esquerda*/
+    /* o w100 por padrao ja botamos width 100%, entao a bolinha vai la pro final
+    entao botamos ele como 50% do pai(w100) pra poder ficar no meio */
+    /* width: 30%;  melhor nao fazer assim pra espaca-los(definindo width da div que tem
+    os dois radios...pq pode um ficar por cima do outro) */
+    margin: 15px 10px; /*melhor aproveitar o margin e fzr pros lados tbm*/
+} 
+
+.input-radio h2{
+    display: inline-block;
+}
+
+.input-radio input[type=radio]{
+    width: auto !important;
+    display: inline-block;
+}
+
+section.language{ /*fica colado, a classe language eh filho direto de section*/
+    /* text-align: center; tirei isso pq quis botar padding-left la no center
+     pra substituir os 2% padrao */
+    /* height: 30px; nao botar height, pq ai o padding nao fica certinho */
+    background-color: grey;
+    padding: 30px 0;
+}
+
+
+/*estilizando a cor dos links e seus espacamentos*/
+section.language a{ 
+    padding-right: 8px;
+    color: white;
+    text-decoration: none; /*tirando o underline de cada, que eh padrao*/
+    font-size: 14px;
+}
+
+/* estilizando apenas o selecionado, a cor */
+section.language .selected-language{ /*nao fica colado o ponto, tem a classe language entre eles*/
+    /* padding-left: 10px; tinha posto isso pra espacalos, mas eh melhor espacar com a tag "a" */
+    color: purple;
+}
+
+section.language .center{
+    padding-left: 18px;
+    padding-right: 8px;
+    padding-bottom: 3px; /*menos pq quero distancia desejada p dps botar borda*/
+    border-bottom: 1px solid white;
+}
+/* comecar o responsivo*/
+
+/*quando for menor ou igual 768px, faca essas mudancas*/
+@media screen and (max-width: 768px) {
+   
+    /*! mudando as coisas no header */
+    .logo{
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    /*antes o .logo e .form-login estavam apenas com o float, um pra esquerda e outro pra direita
+    agora botamos tbm o width como 100% pq queremos manipular eles mais especificamente, no meio*/
+    form.form-login{
+        /*ah! quero que o form-login fique um pouco afastado do bagulho de cima, do logo.
+        vou botar magin-top ne! 
+        opa! desceu a o bagulho junto, como se tivesse tacado o margin no elemento de cima...
+        isso pq ele ta com display block por padrao, ou seja, ta comportando como bloco, 
+        pegando a porra toda, entao vamos botar inline-block pra descer so isso*/
+        /* elemento block nao deixa outro elemento ficar na mesma linha que ele  */
+        margin-top: 17px;
+        display: inline-block;
+        float: none;
+        width: 100%; 
+        text-align: center;
+    }
+    .form-login .form-element{ 
+        display: block; /*inline block em cada um - faz ficar um do lado do outro*/
+        margin-right: 15px; /*se colocar auto, ele vai o maximo pra direita
+        ou seja, se colocar auto no margin-left e right, fica centralizado*/
+        margin: 10px 0;
+    }
+    
+    .form-element label{
+        color: white;
+        font-size: 14px;
+        
+    }
+    
+    .form-element input[type=email],
+    .form-element input[type=password]{ 
+        width: 100%;
+        max-width: 320px;
+        margin-top: 4px;
+        height: 22px;
+        padding-left: 3px;
+    }
+    .form-element input[type=submit]{
+        background-color: orange;
+    }
+
+    /*quando boto a lola na direita e o form na esquerda, para de bugar*/
+    .img-lolita{
+        float: left; 
+        width: 60%; 
+    }
+    .abrir-conta{
+        width: 40%;
+        float: right;
+    }
+}
+

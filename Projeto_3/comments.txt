@@ -1,0 +1,255 @@
+a partir disso, fzr comentarios no arquivo css 
+de modo que explique rapido e diretamente
+o porquê de cada decisão diferente.
+
+----fazer o header
+90vh significa 90% do tamanho da tela, 
+nao herda o tamanho do pai, apenas o tamanho
+da TELA
+w, h(vh), padding, backgrond img, size, position
+nao colocar max-heigth p ficar com uma sensacao boa de preenchimento
+
+-colocar a fonte no head, e no *{}
+
+-fazer a div center com max-w e margin,
+colocar isso sempre dentro do header, section, div
+
+-lista dentro no header, com hrefs pro menu
+usando nav > ul > li
+estilizar - nav pra direita
+ul sem bolinha
+li pra esquerda e padding/margin
+nos links (a) botar cor e tirar decoracao
+
+-logo dentro do header, 
+estilizar com w, h e imagem.
+(os menus do outro lado podem descer pq
+a logo fica com display block, entao podemos
+botar o float left, ou inline-block)
+
+
+-----textao com h2, p e quebra de linha
+
+-estilizar com float, margin e max-width(pra quebrar linha do paragrafo)
+-estilizar o h2 cor, font-wheight e size
+-estilizar p com cor, font-size, margin-top
+
+-importar fonte open sans light, que tem outros font-wheights
+
+
+------fazer a section de baixo, com o center
+estilizar com width, bg-cor, padding,
+-div com h2, p e lista
+-estilizar essa div com float e cor - e width 50% pra dividir com outra div
+-h2 com font-wheight
+-p com margin-top, font-size
+-ul mexendo nas bolinhas e font-size
+-li com margin-top, width e float
+
+----fazer o outro conteudinho, o device
+-estilizar com float e width 50% p ocupar a outra parte,
+background-image, repeat, size 
+-se quiser afunilar um pouco, muda o center que esta dentro daquela section
+e muda o width
+--temos que fazer a marcacao da posicao certinho, ja pensando que vai ter
+responsivo, entao nao pode ser de qlqr jeito, tem muitas variaveis, quanto melhor
+estruturar o documento, melhor vai ser qndo fzr o responsivo
+-ha o problema de ter que colocar essa imagenzinha um pouco por cima da sessao de cima.
+entao vamos colocar uma ALTURA FIXA nesse div com a device dentro. 
+a imagem deve ficar sobrando, meio que flutuando, entao vamos expandir ela.
+para isso, vamos botar essa device com a mesma altura fixa tbm. 
+a imagem deve ficar agora ate la embaixo, e so falta 
+antes vc deve ter posto background-size 100% auto, agora eh tudo 100%¨, p ficar
+tudo bem esticado
+vamos jogar pra cima? position relative! agora pode mexe-lo! top -30px p subir!
+a imagem deve deslocar em baixo, entao aumenta o tamanho da imagem em 30px tbm 
+
+----fazer o botaozinho em baixo da lista
+-estilizar com bg-cor, w, h, cor, cursos, margin-top
+text-align, line-wheight pra centralizar na vertical, border-radius
+-ele ta no left mas o texto da sessao tbm ta, e com float, entao eles misturam
+entao tem que dar o clear depois da lista TBM
+
+(ir mexendo no margin e padding do texto, vendo oq ficar melhor, aproximando
+ele do outro div, device)
+(quero fazer com que o textao colida com o device? so tacar position relative
+e jogar pra direita jogando pixels no "left")
+
+----fazendo responsivo da sessao embaixo do header grandao(768px)
+-aumentando padding e botando height auto - mas pq?
+-no textao, tirar float, botar none, tirar o margin-top pra ficar
+so com o padding da sessao, e trocar o relative pelo position static(e nao
+precisa tirar o left pq static ja ignora)
+tambem, resetar o padding-left que tinhamos feito,.
+tambem, centralizar tudo colocado text-align center no pai, na sessao.(nao vai
+funcionar pq tem que botar display inline block no texto)
+tambem colocar width 100% pra nao quebrar linhas que nao precisam ser quebradas
+
+-tirar o device, pq ele comeca a ficar todo deformado, display none.
+
+---no botao, bota inline block tbm pra seguir tudo
+---e na lista, botar float none pra resetar tudo
+e alinhar tudo na esquerda, pra ficar justify...mas vai ficar tudo la na pqp 
+na esquerda, sair do centro determinado na sessao, entao temos que colocar 
+display inline block nele tbm pra ficar centralizado
+
+---vamos fazer o responsivo do header.
+-primeiro o menu! vamos fazer dois menus, o desktop e o mobile
+o desktop eh o que ja ta, enquanto o mobile ta desativo com display none
+quando chega na mediaquery, o que tava antes vamos dar display none e o mobile
+que estava none vamos colocar block, e ai vamos deixar em formato de lista
+Para fazer esse menu mobile, vamos pegar um icon de menu hamburger no site flaticon, 
+vamos colocar como backgrond-image/size no menu, setar dimensoes.
+agora vamos arrumar a lista pra quando clicarmos no icon no mobile?
+tacar uma width na ul toda, botar uma background-color, padding, e tirar as bolinhas, 
+claro. 
+os itens da li ja tem cor padrao, entao nao da pra trocar botando color no ul,
+temos que fazaer isso sobrescrrevendo diretamente no li.
+
+botar position absolute pra dps usar left e top 0, ficando tudo na esquerda
+e deixar tudo no centro, botando text-align center na ul
+nao esquecer de aumentar o TOP depois, pra ficar aparecendo logo embaixo do
+icone hamburguer
+agora sobre os LI na UL, botar border em baixo pra separar cada um,
+botar padding pra separar essas linhas, tirar as bolinhas, e ja que vamos colocar
+padding nas li tbm, talvez nao precise colocar padding na ul tbm, vai ficar muito 
+espaco
+--sem o js, pdoemos simular no css oq queremos que aconteca pra aparecer essa
+outro menu, podemos fazer com que, caso esse menu tenha hover, pegamos a ul
+e damos DISPLAY BLOCK(antes tava none)
+podemos tbm, quando a li tiver hover em cada uma, botamos um backgroundzinho
+se quero usar transition pra aparecer devagar, temos que botar o transition no li,
+e NAO no li:hover.
+
+
+
+-tbm vamos deixar a altura do header automatico, porem botar uma altura minima,
+que era a padrao, 90vh. assim, nao quebra pq definimos o min-height, e nao o height
+em si.
+
+-na chamada dentro do header, mesma coisa, tirar o float, alinhar tudo, width 100%,
+tirar width maximo e colocar margin
+
+(quando poe a lista inside, fica muito espaco entre as bolinhas e as palavras..
+pra contornar isso, deixamos outside e botando um padding left.)
+
+partiu fazer a proxima sessao? taca o center dentro como sempre, botar o h2 e p
+padding na sessao, usando porcentagem nos lados, e tacando text align center
+pra centralizar o h2 e p, mas o p nao fica centralizado pq eh display block, 
+pq ele nao centraliza quando botamos uma largura pre definida, pq o block sempre
+ocupa TUDO. como sempre, arrumar a margin-top pra distanciar do h2 
+e tacar um max-width pra diminuir o alcance do texto
+
+(lembra que botamos o tamanho do header sempre proporcional a 90% da altura da tela?
+entao, quando redimensionar A ALTURA, vai ficar escroto, entao vamos botar um min-width)
+
+-caso o alguma sessao ou o header bugue outra sessao, podemos copiar algumas regras 
+da media query e colar em outra para que ative o responsivo um pouco antes
+
+
+---fazendo a terceira sessao, colocar width 100%, padrao, e suas duas partes, com
+50% cada uma...float left e width 50% nas duas.
+-vamos tacar o h2 e p dentro da parte 1 la na direita? colocando float right? entao
+primeiro temos que encapsular esse h2 e p dentro de uma div chamada wraper e 
+ai sim podemos flutuar sem mexer na parte 1 inteiramente. botar tbm um max width pra
+regular o espaco que o h2 comeca e ate onde o p aguenta ir...tbm fazer um padding
+ou margin pra distanciar da ponta direita..melhor padding pq temos controlhe melhor
+
+-vamos fazer a parte 2 com seus 50%? 
+essas parte 2 vai ter float left tbm, com width 50% e padding definidos.
+
+-vamos fazer uma outra divisinha dentro dessa parte 2 antes de comecar a fazer as coisas,
+apenas para setar um width maximo do conteudo. obviamente dar float e padding lefts.
+
+-numa div, vamos encapsular pra ter o h2, p e imagem, tacando tudo pra esquerda com width 100%
+-numa outra div, encapsular apenas o h2 e p e botar um float left tbm.
+-estilizar o h2 e p normalmente, com font wheight, size, padding e cor.(style italic se precisar)
+
+-vamos encapsular apenas a imagem pra mexer nela, botando float left tbm;
+estilizando com dimensoes e borda redonda. tbm colocar um position relative para com o top negativo,
+jogar um pouco pra cima pra alinhar com o centro do texto na esquerda(h2). 
+
+-numa outra div, botaremos o outro p, com o textao. tbm botarem na esquerda e w-100%(margin-top tbm).
+estilizar depois o proprio p, com cor de font size;
+
+----vamos fazer as bolinhas pra fingir o slider dessa parte 2.
+-vamos fazer o container que tem as bolinhas. botando na esquerda e setando width 100%(do pai part2) 
+tbm vamos colocar um margin-left do mesmo tamanho do margin left que esta no na div que encapsular 
+o h2, p, imagem, e outro p(a div logo apos a div da parte 2 que tem os 50% etc)
+-vamos usar o span pra simbolizar as bolinhas. span eh inline, entao nao leva em conta width e height
+pq so leva em conta o tamanho do texto.
+entao temos que setaer como display inline block ou botar um float left
+aplicar margin-right pra distanciar cada bolitcha
+no html, colocar um style com background color na cor preta pra fingir que ta selecionado.
+
+-----aplicar responsivo pra quando ficar mt pequeno, ficar uma parte em cima da outra inves de 50/50?
+so fazer a media query e botar ambas com width 100%
+-a imagem do device ficou por cima do h2? vamos subir um pouco de novo(nesse media query, obvio)
+vms copiar o comando la de cima e jogar no @, diminuir o a distancia do top.(dar um margin-top tbm)
+
+
+-----vamos fzr a quarta sessao!
+-jogar o centro dentro
+-botar um padding nessa sessao 4
+
+-criar a parte1(h2, p e form), com width 50%
+tacar na esquerda e jogar padding left
+.no h2, estilizar font-wheight/size
+.no p, font-wheight/size, max-width pro texto quebrar linha logo.
+.no form, jogar um margin-top
+dentro do form, terá input text e textArea...
+.estilizar ambos com height, width de quase 100%, max-width, margin-top, borda.
+.text terá line-height p deixar o texto no meio da vertical e padding-left p distanciar da ponta o text
+.textArea terá padding geral.
+.for fim, no botao de submit do form, 
+estilizar da forma padrao, tirando a borda automatica, botando cor de fundo, setando w e h, 
+botando cor da palavra, botando cursos pointer, fazendo a borda arredondada com border-radius, 
+arrumando a fonte-size e tacando um margin-top pra distanciar do textArea
+(submit nao precisa de text-aling center e line-height pq por padrao ele ja centraliza td)
+
+-criando a parte 2, com o float left e width 50%(padding tbm)
+vamos fazer a div do mapa, e encapsular numa div2 . nao podemos botar um height responsivo, com o
+padding-top, pq porcentagem no height pega como padrao o width do pai, que eh 50%, ou seja, ficaria mt grande
+...pra isso, vamos encapsular essa div2 dentro de uma div3, nessa div3 nós colocaremos position relative
+pra poder colocar a position absolute na div2, podendo assim colocar no div2 o padding-top 100%, que nao
+ficará gigante pq na div pai, tem o max-width. (como o div2 ja ta dentro do div3, com a maxima largura,
+podemos sem medo colocar width e padding-top 100%, deixando tudo do mesmo tamanho)
+e no proprio mapa, dentro da div2, podemos colocar tudo sem medo, w e h 100%, position absolute botando
+top e left 0, colcocando o mapa dentro e uma bordazinha.
+
+
+---fazendo o footer
+-na div geral, tacar a cor de fundo e a cor do texto. (por causa do respopnsivo, ja botar padding 40px 2%)
+-nesse div tem 2 p, o primeiro eu taco no float left e o outro no right...usar pseudoclasses pra 
+diferenciar a primeira da segunda(treinando)...e tbm estilizar o tamanho da fonte
+
+-na responsividade desse footer, vamos inves de deixar um em cada canto, vamos deixar os dois no meio
+e um em cima do outro. para isso, vms tacar text align center na div geral.
+.depois vamos tirar as flutuacoes dos dois paragrafos, com float none. no segundo, botar um margin-top
+(nao esquecer de limpar logo depois de usar o flot la no html - nesse caso, a falta do clear deixou um 
+espacamento maior em cima doq embaixo, pois como ta flutuando, ele nao conta o tamanho.)
+
+
+-----deixamos pra colocar as imagens no final
+-na logo, vamos colocar o background-image url, colocar a position no centro e 
+tirar o backgrond-color ou deixa-lo transparente. vamos colocar o backgrond-size como 100% e 100%
+...vai ficar distorcido, pois nós definimos um width e height  fixos antes. 
+entao a melhor maneira eh colocar o size como contain. vai deixar proporcional, mesmo ficando
+um pouco menor. ja que ta menor, vai comecar a repetir as imagens nos espacos que faltam, entao vamos de
+no-repeat! se quisermos subir um pouco a logo pra ficar mais reta com o menu, so tacar
+position relative e subir com o top negativo.
+
+-na outra imagem, vms fzr a mesma coisa(podemos inspecionar no console pra lembrar do nome da classe que
+ta o lugar da imagem) -  colocar o background-image url e logo setar o size, pra poder aparecer.
+
+
+
+
+
+
+
+
+
+
+
+
